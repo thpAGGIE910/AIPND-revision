@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_input_args.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:                                   
+# PROGRAMMER: Travis Payne
+# DATE CREATED: October 7, 2018                        
 # REVISED DATE: 
 # PURPOSE: Create a function that retrieves the following 3 command line inputs 
 #          from the user using the Argparse Python module. If the user fails to 
@@ -25,7 +25,7 @@ def get_input_args():
     """
     Retrieves and parses the 3 command line arguments provided by the user when
     they run the program from a terminal window. This function uses Python's 
-    argparse module to created and defined these 3 command line arguments. If 
+    argparse module to create and define these 3 command line arguments. If 
     the user fails to provide some or all of the 3 arguments, then the default 
     values are used for the missing arguments. 
     Command Line Arguments:
@@ -34,10 +34,14 @@ def get_input_args():
       3. Text File with Dog Names as --dogfile with default value 'dognames.txt'
     This function returns these arguments as an ArgumentParser object.
     Parameters:
-     None - simply using argparse module to create & store command line arguments
+      None - simply using argparse module to create & store command line arguments
     Returns:
-     parse_args() -data structure that stores the command line arguments object  
+      parse_args() - data structure that stores the command line arguments object  
     """
     # Replace None with parser.parse_args() parsed argument collection that 
     # you created with this function 
-    return None
+    parser = argparse.ArgumentParser(description="Determine if an image is of a dog and, if the image is of a dog, the breed of dog.")
+    parser.add_argument("-d", "--dir", default="pet_images", help="directory containing the images to classify")
+    parser.add_argument("-a", "--arch", default="vgg", help="CNN model architecture that will be used to classify the images")
+    parser.add_argument("-f", "--dogfile", default="dognames.txt", help="text file containing the different dog breeds")
+    return parser.parse_args()

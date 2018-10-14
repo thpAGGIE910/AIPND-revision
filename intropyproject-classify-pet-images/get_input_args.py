@@ -42,6 +42,6 @@ def get_input_args():
     # you created with this function 
     parser = argparse.ArgumentParser(description="Determine if an image is of a dog and, if the image is of a dog, the breed of dog.")
     parser.add_argument("-d", "--dir", default="pet_images/", help="directory containing the images to classify")
-    parser.add_argument("-a", "--arch", default="vgg", help="CNN model architecture that will be used to classify the images")
+    parser.add_argument("-a", "--arch", default="vgg", help="CNN model architecture that will be used to classify the images", choices=["resnet", "vgg", "alexnet"])
     parser.add_argument("-f", "--dogfile", default="dognames.txt", help="text file containing the different dog breeds")
     return parser.parse_args()

@@ -44,7 +44,7 @@ def get_pet_labels(image_dir):
     results_dic = dict()
 
     for pet_filename in filename_list:
-      pet_name = [x for x in pet_filename.split("_") if x]
+      pet_name = [x for x in pet_filename.split("_") if x.strip()]
       pet_name = " ".join(pet_name[:len(pet_name) - 1]).lower()
       results_dic[pet_filename] = [pet_name]
 

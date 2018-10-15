@@ -83,6 +83,6 @@ def adjust_results4_isadog(results_dic, dogfile):
 
     for key, results in results_dic.items():
       label_is_dog = int(dogs_dic.get(results[0]) is not None)
-      classifier_is_dog = int(int(dogs_dic.get(results[1]) is not None))
+      classifier_is_dog = int(dogs_dic.get(results[1]) is not None)
       results_dic[key].extend([label_is_dog, classifier_is_dog])
     

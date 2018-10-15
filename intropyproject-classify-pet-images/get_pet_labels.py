@@ -40,9 +40,15 @@ def get_pet_labels(image_dir):
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
-    filename_list = listdir(image_dir)
+    filename_list = None
     results_dic = dict()
 
+    try:
+      filename_list = listdir(image_dir)
+    except FileNotFoundError:
+      print("Error: The directory '{}' was not found".format(image_dir))
+      exit(1)
+    
     for pet_filename in filename_list:
       pet_name = [x for x in pet_filename.split("_") if x.strip()]
       pet_name = " ".join(pet_name[:len(pet_name) - 1]).lower()

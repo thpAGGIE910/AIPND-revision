@@ -5,7 +5,7 @@
 # TODO 0: Add your information below for Programmer & Date Created.                                                                             
 # PROGRAMMER: Travis Payne
 # DATE CREATED: October 7, 2018                       
-# REVISED DATE: 
+# REVISED DATE: October 14, 2018
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
 #          summarizes how well the CNN performed on the image classification task. 
@@ -24,7 +24,7 @@
 ##
 
 # Imports python modules
-from time import time, sleep
+from time import time
 
 # Imports print functions that check the lab
 from print_functions_for_lab_checks import *
@@ -51,7 +51,6 @@ def main():
 
     # Function that checks command line arguments using in_arg  
     check_command_line_arguments(in_arg)
-
     
     # TODO 2: Define get_pet_labels function within the file get_pet_labels.py
     # Once the get_pet_labels function has been defined replace 'None' 
@@ -79,7 +78,6 @@ def main():
     # Function that checks Results Dictionary using results    
     check_classifying_images(results)    
 
-    
     # TODO 4: Define adjust_results4_isadog function within the file adjust_results4_isadog.py
     # Once the adjust_results4_isadog function has been defined replace 'None' 
     # in the function call with in_arg.dogfile  Once you have done the 
@@ -88,11 +86,10 @@ def main():
     # Adjusts the results dictionary to determine if classifier correctly 
     # classified images as 'a dog' or 'not a dog'. This demonstrates if 
     # model can correctly classify dog images as dogs (regardless of breed)
-    adjust_results4_isadog(results, None)
+    adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
-
 
     # TODO 5: Define calculates_results_stats function within the file calculates_results_stats.py
     # This function creates the results statistics dictionary that contains a
@@ -104,7 +101,6 @@ def main():
 
     # Function that checks Results Statistics Dictionary using results_stats
     check_calculating_results(results, results_stats)
-
 
     # TODO 6: Define print_results function within the file print_results.py
     # Once the print_results function has been defined replace 'None' 
@@ -124,7 +120,6 @@ def main():
           str(int((tot_time/3600)))+":"+str(int((tot_time%3600)/60))+":"
           +str(int((tot_time%3600)%60)) )
     
-
 # Call to main function to run the program
 if __name__ == "__main__":
     main()
